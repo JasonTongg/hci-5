@@ -10,33 +10,6 @@ let feature = document.querySelector('.feature');
 let operation = document.querySelector('.operation');
 let testimoni = document.querySelector('.testimoni');
 
-navbarFeatures.addEventListener('click', () => {
-  // window.scrollTo({
-  //     left: 0 + window.pageXOffset,
-  //     top: feature.getBoundingClientRect().top + window.pageYOffset,
-  //     behavior: "smooth"
-  // });
-  feature.scrollIntoView({ behavior: 'smooth' });
-});
-
-navbarOperation.addEventListener('click', () => {
-  // window.scrollTo({
-  //     left: 0 + window.pageXOffset,
-  //     top: operation.getBoundingClientRect().top + window.pageYOffset,
-  //     behavior: "smooth"
-  // });
-  operation.scrollIntoView({ behavior: 'smooth' });
-});
-
-navbarTestimoni.addEventListener('click', () => {
-  // window.scrollTo({
-  //     left: 0 + window.pageXOffset,
-  //     top: testimoni.getBoundingClientRect().top + window.pageYOffset,
-  //     behavior: "smooth"
-  // });
-  testimoni.scrollIntoView({ behavior: 'smooth' });
-});
-
 //Hero Page
 let hero = document.querySelector('.hero');
 
@@ -90,36 +63,6 @@ let heroObserver = new IntersectionObserver(navSticky, {
   rootMargin: `-${navbarHeight}px`,
 });
 heroObserver.observe(hero);
-
-//Operation Page
-let operationInfoContainer = document.querySelector(
-  '.operation__items--infoContainer'
-);
-let operationInfo = document.querySelector('.operation__items--info');
-
-operationInfoContainer.style.height = `${
-  operationInfo.getBoundingClientRect().height
-}px`;
-
-//Operation Change Content
-let tabContainer = document.querySelector('.operation__items--buttonContainer');
-let tab = document.querySelectorAll('.operation__items--button');
-let contentContainer = document.querySelector(
-  '.operation__items--infoContainer'
-);
-let content = document.querySelectorAll('.operation__items--info');
-
-tab.forEach(item =>
-  item.addEventListener('click', e => {
-    tab.forEach(items => items.classList.remove('btn-active'));
-    e.target.classList.add('btn-active');
-
-    content.forEach(items => items.classList.remove('info--active'));
-    document
-      .querySelector(`.info--${e.target.dataset.number}`)
-      .classList.add('info--active');
-  })
-);
 
 //testimoni page
 let testimoniItemsInfoContainer = document.querySelector(
@@ -200,7 +143,9 @@ testimoni1.style.left = `${testimoni1.dataset.number * 100}%`;
 testimoni2.style.left = `${testimoni2.dataset.number * 100}%`;
 testimoni3.style.left = `${testimoni3.dataset.number * 100}%`;
 
+console.log(left);
 left.addEventListener('click', e => {
+  console.log('kiri');
   if (testimoni1.dataset.number == -1) {
     testimoni1.dataset.number = 1;
   } else {
