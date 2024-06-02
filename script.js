@@ -46,23 +46,23 @@ navbar.addEventListener('mouseout', e => {
 //         navbar.style.position = "static";
 //     }
 // })
-let navSticky = entries => {
-  let [entrie] = entries;
-  console.log(entrie);
-  if (!entrie.isIntersecting) {
-    navbar.style.position = 'fixed';
-  } else {
-    navbar.style.position = 'static';
-  }
-};
+// let navSticky = entries => {
+//   let [entrie] = entries;
+//   console.log(entrie);
+//   if (!entrie.isIntersecting) {
+//     navbar.style.position = 'fixed';
+//   } else {
+//     navbar.style.position = 'static';
+//   }
+// };
 
-let navbarHeight = navbar.getBoundingClientRect().height;
-let heroObserver = new IntersectionObserver(navSticky, {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${navbarHeight}px`,
-});
-heroObserver.observe(hero);
+// let navbarHeight = navbar.getBoundingClientRect().height;
+// let heroObserver = new IntersectionObserver(navSticky, {
+//   root: null,
+//   threshold: 0,
+//   rootMargin: `-${navbarHeight}px`,
+// });
+// heroObserver.observe(hero);
 
 //testimoni page
 let testimoniItemsInfoContainer = document.querySelector(

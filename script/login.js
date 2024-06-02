@@ -1,36 +1,35 @@
 const username = document.querySelector('#Username');
-const password = document.querySelector('#Password');
-const phoneNumber = document.querySelector('#number');
+const male = document.querySelector('#Male');
+const female = document.querySelector('#Female');
+const date = document.querySelector('#date');
 const email = document.querySelector('#Email');
-const confirmPassword = document.querySelector('#PasswordConfirm');
-const login = document.querySelector('#login');
+const term = document.querySelector('#term');
+const submit = document.querySelector('#submit');
 const message = document.querySelector('.form-error');
+const errorContainer = document.querySelector('.form-error-container');
 
-login.addEventListener('click', e => {
+submit.addEventListener('click', e => {
   e.preventDefault();
   if (
     username.value === '' ||
-    password.value === '' ||
-    phoneNumber.value === '' ||
+    (male.checked === false && female.checked === false) ||
+    date.value === '' ||
     email.value === '' ||
-    confirmPassword.value === ''
+    term.checked === false
   ) {
-    message.style.display = 'block';
+    errorContainer.style.display = 'flex';
     message.innerHTML = 'Please fill in all fields';
+    setTimeout(() => {
+      errorContainer.style.display = 'none';
+    }, 5000);
   } else if (email.value.includes('@') === false) {
-    message.style.display = 'block';
+    errorContainer.style.display = 'flex';
     message.innerHTML = 'Invalid email';
-  } else if (phoneNumber.value.length < 10) {
-    message.style.display = 'block';
-    message.innerHTML = 'Invalid phone number';
-  } else if (password.value.length < 8) {
-    message.style.display = 'block';
-    message.innerHTML = 'Password must be at least 8 characters';
-  } else if (password.value !== confirmPassword.value) {
-    message.style.display = 'block';
-    message.innerHTML = 'Password does not match';
+    setTimeout(() => {
+      errorContainer.style.display = 'none';
+    }, 5000);
   } else {
-    message.style.display = 'none';
+    errorContainer.style.display = 'none';
     window.location.href = '/';
   }
 });

@@ -8,10 +8,9 @@
 </head>
 <body>
     <section class="login-container">
-        <img src="../img/showroom6.jpg!d" alt="">
         <form action="">
             <div class="form-container">
-                <h1>Login</h1>
+                <h1>Subscribe</h1>
                 <div class="form-item">
                     <label for="Username">Username</label>
                     <input type="text" placeholder="Ex: Ronaldo" id="Username">
@@ -21,23 +20,34 @@
                     <input type="Email" placeholder="example@gmail.com" id="Email">
                 </div>
                 <div class="form-item">
-                    <label for="number">Phone Number</label>
-                    <input type="number" placeholder="08xxxxxxxxx" id="number">
+                    <label for="date">Date of Birth</label>
+                    <input type="date" id="date">
                 </div>
                 <div class="form-item">
-                    <label for="Password">Password</label>
-                    <input type="password" placeholder="Your Password" id="Password">
+                    <div>
+                        <input type="radio" value="Male" id="Male" name="gender">
+                        <label for="Male">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="Female" id="Female" name="gender">
+                        <label for="Female">Female</label>
+                    </div>
                 </div>
                 <div class="form-item">
-                    <label for="PasswordConfirm">Confirm Password</label>
-                    <input type="password" placeholder="Confirm your Password" id="PasswordConfirm">
+                    <div>
+                        <input type="checkbox" id="term">
+                        <label for="term">Terms and Condition</label>
+                    </div>
                 </div>
-                <p class="form-error">Error Message</p>
-                <button id="login">Login</button>
+                <div class="form-error-container">
+                    <p class="form-error">Error Message</p>
+                </div>
+                
+                <button id="submit">Submit</button>
             </div>
-            
-            
         </form>
+        <img src="../img/news.webp" alt="">
+        <div class="form-back"> <a href="/">Back to Home</a></div>
     </section>
     <script src="../script/login.js"></script>
 </body>
