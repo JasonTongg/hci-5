@@ -16,18 +16,7 @@ let hero = document.querySelector('.hero');
 hero.style.height = `calc(40vh - ${navbar.getBoundingClientRect().height}px)`;
 
 //Navbar Opacity
-navbar.addEventListener('mouseover', e => {
-  document
-    .querySelectorAll('.navbar--button')
-    .forEach(item => (item.style.opacity = '.5'));
-  document.querySelector('.navbar--image').style.opacity = '.5';
-  if (
-    e.target.classList.contains('navbar--button') ||
-    e.target.classList.contains('navbar--image')
-  ) {
-    e.target.style.opacity = '1';
-  }
-});
+navbar.addEventListener('mouseover', e => {});
 
 navbar.addEventListener('mouseout', e => {
   document
@@ -35,34 +24,6 @@ navbar.addEventListener('mouseout', e => {
     .forEach(item => (item.style.opacity = '1'));
   document.querySelector('.navbar--image').style.opacity = '1';
 });
-
-//Navbar Sticky
-// let featureTop = feature.getBoundingClientRect().top;
-// window.addEventListener("scroll", (e) => {
-//     if(window.pageYOffset > featureTop){
-//         navbar.style.position = "fixed";
-//     }
-//     else{
-//         navbar.style.position = "static";
-//     }
-// })
-// let navSticky = entries => {
-//   let [entrie] = entries;
-//   console.log(entrie);
-//   if (!entrie.isIntersecting) {
-//     navbar.style.position = 'fixed';
-//   } else {
-//     navbar.style.position = 'static';
-//   }
-// };
-
-// let navbarHeight = navbar.getBoundingClientRect().height;
-// let heroObserver = new IntersectionObserver(navSticky, {
-//   root: null,
-//   threshold: 0,
-//   rootMargin: `-${navbarHeight}px`,
-// });
-// heroObserver.observe(hero);
 
 //testimoni page
 let testimoniItemsInfoContainer = document.querySelector(
@@ -122,7 +83,6 @@ let right = document.querySelector('.arrow-right');
 let testimoni1 = document.querySelector('.testimoni--1');
 let testimoni2 = document.querySelector('.testimoni--2');
 let testimoni3 = document.querySelector('.testimoni--3');
-let testimoniDot = document.querySelectorAll('.testimoni__dot');
 
 let active = 1;
 testimoni1.dataset.number--;
@@ -180,13 +140,6 @@ left.addEventListener('click', e => {
   testimoni1.style.left = `${testimoni1.dataset.number * 100}%`;
   testimoni2.style.left = `${testimoni2.dataset.number * 100}%`;
   testimoni3.style.left = `${testimoni3.dataset.number * 100}%`;
-
-  active--;
-  if (active <= 0) {
-    active = 3;
-  }
-  testimoniDot.forEach(item => item.classList.remove('dot-active'));
-  document.querySelector(`.dot--${active}`).classList.add('dot-active');
 });
 
 right.addEventListener('click', e => {
@@ -224,11 +177,8 @@ right.addEventListener('click', e => {
   testimoni1.style.left = `${testimoni1.dataset.number * 100}%`;
   testimoni2.style.left = `${testimoni2.dataset.number * 100}%`;
   testimoni3.style.left = `${testimoni3.dataset.number * 100}%`;
-
-  active++;
-  if (active == 4) {
-    active = 1;
-  }
-  testimoniDot.forEach(item => item.classList.remove('dot-active'));
-  document.querySelector(`.dot--${active}`).classList.add('dot-active');
 });
+
+setInterval(() => {
+  right.click();
+}, 3000);
